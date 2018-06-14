@@ -348,7 +348,7 @@ def bot(op):
                                         pass
                                     else:
                                         try:
-                                            assist1.sendMessageWithMention(msg.to,target,"""aku kick")
+                                            assist1.sendMessageWithMention(msg.to,target,"Sorry Bro","Aku kick anda karna anda jelek makasih")
                                             klist = [assist1,assist2,assist3,assist4
                                             kicker = random.choice(klist)
                                             kicker.kickoutFromGroup(msg.to,[target])
@@ -365,15 +365,15 @@ def bot(op):
                                         n_links.append(l)
                                 for ticket_id in n_links:
                                     if Setmain["RAautojoin"] == True:
-                                        ra = cl.findGroupByTicket(ticket_id)
-                                        cl.acceptGroupInvitationByTicket(ra.id,ticket_id)
-                                        ki.acceptGroupInvitationByTicket(ra.id,ticket_id)
-                                        kk.acceptGroupInvitationByTicket(ra.id,ticket_id)
-                                        kc.acceptGroupInvitationByTicket(ra.id,ticket_id)
-                                        ks.acceptGroupInvitationByTicket(ra.id,ticket_id)
+                                        ra = kingbii.findGroupByTicket(ticket_id)
+                                        kingbii.acceptGroupInvitationByTicket(ra.id,ticket_id)
+                                        assist1.acceptGroupInvitationByTicket(ra.id,ticket_id)
+                                        assist1.acceptGroupInvitationByTicket(ra.id,ticket_id)
+                                        assist1.acceptGroupInvitationByTicket(ra.id,ticket_id)
+                                        assist1.acceptGroupInvitationByTicket(ra.id,ticket_id)
                                         
                                     else:    
-                                        ki.sendMessageWithMention(msg.to,msg._from,"Maaf","\naktifkan auotojoin dulu")
+                                        assist1.sendMessageWithMention(msg.to,msg._from,"Kalau mau Auto Join","\naktifkan auotojoin dulu")
 
     except Exception as error:
         print (error)
