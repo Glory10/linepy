@@ -15,34 +15,34 @@ import time, random, multiprocessing, sys, json, codecs, threading, glob, re, st
 #line.log("Auth Token : " + str(line.authToken))
 #line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
-line = LINE("Token disini")
-line.log("Auth Token : " + str(line.authToken))
-line.log("Timeline Token : " + str(line.tl.channelAccessToken))
+kingbii = LINE()
+kingbii.log("Auth Token : " + str(kingbii.authToken))
+kingbii.log("Timeline Token : " + str(kingbii.tl.channelAccessToken))
 
-ki = LINE("Token disini")
-ki.log("Auth Token : " + str(ki.authToken))
-ki.log("Timeline Token : " + str(ki.tl.channelAccessToken))
+assist1 = LINE()
+assist1.log("Auth Token : " + str(assist1.authToken))
+assist1.log("Timeline Token : " + str(assist1.tl.channelAccessToken))
 
-kk = LINE("Token disini")
-kk.log("Auth Token : " + str(kk.authToken))
-kk.log("Timeline Token : " + str(kk.tl.channelAccessToken))
+assist2 = LINE()
+assist2.log("Auth Token : " + str(assist2.authToken))
+assist2.log("Timeline Token : " + str(assist2.tl.channelAccessToken))
 
-kc = LINE("Token disini")
-kc.log("Auth Token : " + str(kc.authToken))
-kc.log("Timeline Token : " + str(kc.tl.channelAccessToken))
+assist3 = LINE()
+assist3.log("Auth Token : " + str(assist3.authToken))
+assist3.log("Timeline Token : " + str(assist3.tl.channelAccessToken))
 
-ks = LINE("Token disini")
-ks.log("Auth Token : " + str(ks.authToken))
-ks.log("Timeline Token : " + str(ks.tl.channelAccessToken))
+assist4 = LINE()
+assist4.log("Auth Token : " + str(assist4.authToken))
+assist4.log("Timeline Token : " + str(assist4.tl.channelAccessToken))
 
-cl = line
-oepoll = OEPoll(cl)
-All = [ki,kk,kc,ks]
-mid = cl.profile.mid
-Amid = ki.getProfile().mid
-Bmid = kk.getProfile().mid
-Cmid = kc.getProfile().mid
-Dmid = ks.getProfile().mid
+kingbii = kingbii
+oepoll = OEPoll(kingbii)
+All = [assist1,assist2,assist3,assist4]
+mid = kingbii.profile.mid
+Amid = assist1.getProfile().mid
+Bmid = assist2.getProfile().mid
+Cmid = assist3.getProfile().mid
+Dmid = assist4.getProfile().mid
 RABots = [mid,Amid,Bmid,Cmid,Dmid]
 RASelf = ["Mid Kamu"]
 RAFamily = RASelf + RABots
@@ -53,9 +53,9 @@ def bot(op):
     try:
         if op.type == 5:
             if Setmain["RAautoadd"] == True:
-                ra = cl.getContact(op.param1)
-                cl.findAndAddContactsByMid(ra.mid)
-                cl.sendMessageWithMention(op.param1, op.param1,"Hai","\nsudah ku addback ya\n\n{}".format(str(Setmain["RAmessage"])))
+                ra = kingbii.getContact(op.param1)
+                kingbii.findAndAddContactsByMid(ra.mid)
+                kingbii.sendMessageWithMention(op.param1, op.param1,"Hai","\nsudah ku addback ya\n\n{}".format(str(Setmain["RAmessage"])))
                 
         if op.type == 22:
             if mid in op.param3:
@@ -66,81 +66,81 @@ def bot(op):
             if mid in op.param3:
                 if Setmain["RAautojoin"] == True:
                     if Setmain["RAbatas"]["on"] == True:
-                        G = cl.getGroup(op.param1)
+                        G = kingbii.getGroup(op.param1)
                         if len(G.members) > Setmain["RAbatas"]["members"]:
                             cl.acceptGroupInvitation(op.param1)
-                            ra = cl.getGroup(op.param1)
-                            cl.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
-                            cl.leaveGroup(op.param1)
+                            ra = kingbii.getGroup(op.param1)
+                            kingbii.sendText(op.param1,"Sorry jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                            kingbii.leaveGroup(op.param1)
                         else:
-                            cl.acceptGroupInvitation(op.param1)
-                            ra = cl.getGroup(op.param1)
-                            cl.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            kingbii.acceptGroupInvitation(op.param1)
+                            ra = kingbii.getGroup(op.param1)
+                            kingbii.sendMessageWithMention(op.param1, ra.creator.mid,"Haii","\nSalam Kenal yah :)")
                             
             if Amid in op.param3:
                 if Setmain["RAautojoin"] == True:
                     if Setmain["RAbatas"]["on"] == True:
-                        G = ki.getGroup(op.param1)
+                        G = assist1.getGroup(op.param1)
                         if len(G.members) > Setmain["RAbatas"]["members"]:
-                            ki.acceptGroupInvitation(op.param1)
-                            ra = ki.getGroup(op.param1)
-                            ki.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
-                            ki.leaveGroup(op.param1)
+                            assist1.acceptGroupInvitation(op.param1)
+                            ra = assist1.getGroup(op.param1)
+                            assist1.sendText(op.param1,"Sorry jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                            assist1.leaveGroup(op.param1)
                         else:
-                            ki.acceptGroupInvitation(op.param1)
-                            ra = ki.getGroup(op.param1)
-                            ki.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            assist1.acceptGroupInvitation(op.param1)
+                            ra = assist1.getGroup(op.param1)
+                            assist1.sendMessageWithMention(op.param1, ra.creator.mid,"Haii","\nSalam Kenal yah :)")
                             
             if Bmid in op.param3:
                 if Setmain["RAautojoin"] == True:
                     if Setmain["RAbatas"]["on"] == True:
-                        G = kk.getGroup(op.param1)
+                        G = assist2.getGroup(op.param1)
                         if len(G.members) > Setmain["RAbatas"]["members"]:
-                            kk.acceptGroupInvitation(op.param1)
-                            ra = kk.getGroup(op.param1)
-                            kk.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
-                            kk.leaveGroup(op.param1)
+                            assist2.acceptGroupInvitation(op.param1)
+                            ra = assist2.getGroup(op.param1)
+                            assist2.sendText(op.param1,"Sorry jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                            assist2.leaveGroup(op.param1)
                         else:
-                            kk.acceptGroupInvitation(op.param1)
-                            ra = kk.getGroup(op.param1)
-                            kk.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            assist2.acceptGroupInvitation(op.param1)
+                            ra = assist2.getGroup(op.param1)
+                            assist2.sendMessageWithMention(op.param1, ra.creator.mid,"Haii","\nSalam kenal yah :)")
                             
             if Cmid in op.param3:
                 if Setmain["RAautojoin"] == True:
                     if Setmain["RAbatas"]["on"] == True:
-                        G = kc.getGroup(op.param1)
+                        G = assist3.getGroup(op.param1)
                         if len(G.members) > Setmain["RAbatas"]["members"]:
-                            kc.acceptGroupInvitation(op.param1)
-                            ra = kc.getGroup(op.param1)
-                            kc.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
-                            kc.leaveGroup(op.param1)
+                            assist3.acceptGroupInvitation(op.param1)
+                            ra = assist3.getGroup(op.param1)
+                            assist3.sendText(op.param1,"Sorry jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                            assist3.leaveGroup(op.param1)
                         else:
-                            kc.acceptGroupInvitation(op.param1)
-                            ra = kc.getGroup(op.param1)
-                            kc.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            assist3.acceptGroupInvitation(op.param1)
+                            ra = assist3.getGroup(op.param1)
+                            assist3.sendMessageWithMention(op.param1, ra.creator.mid,"Haii","\nSalam Kenal yah :)")
                             
             if Dmid in op.param3:
                 if Setmain["RAautojoin"] == True:
                     if Setmain["RAbatas"]["on"] == True:
-                        G = ks.getGroup(op.param1)
+                        G = assist4.getGroup(op.param1)
                         if len(G.members) > Setmain["RAbatas"]["members"]:
-                            ks.acceptGroupInvitation(op.param1)
-                            ra = ks.getGroup(op.param1)
-                            ks.sendText(op.param1,"Maaf jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
-                            ks.leaveGroup(op.param1)
+                            assist4.acceptGroupInvitation(op.param1)
+                            ra = assist4.getGroup(op.param1)
+                            assist4.sendText(op.param1,"Sorry jumlah member\n " + str(ra.name) + " lebih dari " + str(Setmain["RAbatas"]["members"]))
+                            assist4.leaveGroup(op.param1)
                         else:
-                            ks.acceptGroupInvitation(op.param1)
-                            ra = ks.getGroup(op.param1)
-                            ks.sendMessageWithMention(op.param1, ra.creator.mid,"hallo","\nsalken group creator...")
+                            assist4.acceptGroupInvitation(op.param1)
+                            ra = assist4.getGroup(op.param1)
+                            assist4.sendMessageWithMention(op.param1, ra.creator.mid,"Haii","\nSalam Kenal yah :).")
                             
         if op.type == 46:
             if op.param2 in RABots:
-                ki.removeAllMessages()
-                kk.removeAllMessages()
-                kc.removeAllMessages()
-                ks.removeAllMessages() 
+                assist1.removeAllMessages()
+                assist2.removeAllMessages()
+                assist3.removeAllMessages()
+                assist4.removeAllMessages() 
                 
-        if op.type == 25 or op.type == 26:
+        if op.type == 25:
             msg = op.message
             text = msg.text
             msg_id = msg.id
@@ -150,15 +150,15 @@ def bot(op):
                 if msg.contentType == 13:
                     if Setmain["RAautoscan"] == True:
                         msg.contentType = 0
-                        ki.sendText(msg.to,msg.contentMetadata["mid"])
+                        kingbii.sendText(msg.to,msg.contentMetadata["mid"])
                         
                 elif msg.contentType == 0:
                     if Setmain["RAautoread"] == True:
-                        cl.sendChatChecked(msg.to, msg_id)
-                        ki.sendChatChecked(msg.to, msg_id)
-                        kk.sendChatChecked(msg.to, msg_id)
-                        kc.sendChatChecked(msg.to, msg_id)
-                        ks.sendChatChecked(msg.to, msg_id)
+                        kingbii.sendChatChecked(msg.to, msg_id)
+                        assist1.sendChatChecked(msg.to, msg_id)
+                        assist2.sendChatChecked(msg.to, msg_id)
+                        assist3.sendChatChecked(msg.to, msg_id)
+                        assist4.sendChatChecked(msg.to, msg_id)
                     if text is None:    
                         return
                     else:
@@ -166,31 +166,31 @@ def bot(op):
             #---------------------- Start Command ------------------------#
                         
                         if text.lower() == "menu":
-                            md = "🔰|RA|Family github version\n\n"
-                            md += ".cek「@」\n"
-                            md += ".gid\n"
-                            md += ".yid\n"
-                            md += ".me\n"
-                            md += ".spbot\n"
-                            md += ".tagall\n"
-                            md += ".pengaturan\n"
-                            md += ".restart\n"
-                            md += ".removechat\n"
-                            md += ".cekmid 「on/off」\n"
-                            md += ".autoread 「on/off」\n"
-                            md += ".join\n"
-                            md += ".bye\n"
-                            md += ".kick「@」\n"
-                            ki.sendText(msg.to, md)
+                            md = "🔰|RA|Family Version\n\n"
+                            md += "🔰 .cek「@」\n"
+                            md += "🔰 .gid\n"
+                            md += "🔰 .yid\n"
+                            md += "🔰 .me\n"
+                            md += "🔰 .spbot\n"
+                            md += "🔰 .tagall\n"
+                            md += "🔰 .pengaturan\n"
+                            md += "🔰 .restart\n"
+                            md += "🔰 .removechat\n"
+                            md += "🔰 .cekmid 「on/off」\n"
+                            md += "🔰 .autoread 「on/off」\n"
+                            md += "🔰 .asupkan\n"
+                            md += "🔰 .crotkan\n"
+                            md += "🔰 .kick「@」\n"
+                            kingbii.sendText(msg.to, md)
                             
                         elif text.lower() == ".pengaturan":
                             if msg._from in RASelf:
-                                md = "🔰|RA|Family github version\n\n"
+                                md = "🔰|RA|Family Version\n\n"
                                 if Setmain["RAautoscan"] == True: md+="✅ Cekmid\n"
                                 else: md+="❎ Cekmid\n"
                                 if Setmain["RAautoread"] == True: md+="✅ Autoread\n"
                                 else: md+="❎ Autoread\n"
-                                ki.sendText(msg.to, md)
+                                kingbii.sendText(msg.to, md)
                                 
             #---------------------- On/Off Command -------------------# 
             
@@ -198,33 +198,33 @@ def bot(op):
                             if msg._from in RASelf:
                                 if Setmain["RAautoread"] == False:
                                     Setmain["RAautoread"] = True
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Autoread diaktifkan")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Auto Read Di Aktifkan")
                                 else:
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Sudah aktif")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Auto Read Sudah Aktif")
                                     
                         elif text.lower() == ".autoread off":
                             if msg._from in RASelf:
                                 if Setmain["RAautoread"] == True:
                                     Setmain["RAautoread"] = False
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Autoread dinonaktifkan")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Auto Read Di Matikan")
                                 else:
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Sudah off")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Auto Read Sudah Di Matikan")
                                     
                         elif text.lower() == ".cekmid on":
                             if msg._from in RASelf:
                                 if Setmain["RAautoscan"] == False:
                                     Setmain["RAautoscan"] = True
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Cekmid diaktifkan")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Cekmid diaktifkan")
                                 else:
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Sudah aktif")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Sudah aktif")
                                     
                         elif text.lower() == ".cekmid off":
                             if msg._from in RASelf:
                                 if Setmain["RAautoscan"] == True:
                                     Setmain["RAautoscan"] = False
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Cekmid dinonaktifkan")
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Cekmid dinonaktifkan")
                                 else:
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Sudah off")            
+                                    kingbii.sendMessageWithMention(msg.to,msg._from,"","Sudah off")            
                             
             #---------------- Fungsi Command ------------------#
             
@@ -233,47 +233,47 @@ def bot(op):
                             keys = key["MENTIONEES"][0]["M"]
                             ra = cl.getContact(keys)
                             try:
-                                ki.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/{}".format(str(ra.pictureStatus)))
-                                ki.sendMessageWithMention(msg.to,ra.mid,"[Nama]\n","\n\n[Bio]\n{}".format(str(ra.statusMessage)))
+                                kingbii.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/{}".format(str(ra.pictureStatus)))
+                                kingbii.sendMessageWithMention(msg.to,ra.mid,"[Nama]\n","\n\n[Bio]\n{}".format(str(ra.statusMessage)))
                             except:
                                 pass
                             
                         elif text.lower() == ".gid":
-                            ki.sendMessageWithMention(msg.to, msg._from,"","\nMemproses..")
-                            ki.sendText(msg.to,msg.to)
+                            kingbii.sendMessageWithMention(msg.to, msg._from,"","\nMemproses..")
+                            kingbii.sendText(msg.to,msg.to)
                             
                         elif text.lower() == ".yid":
-                            ki.sendMessageWithMention(msg.to, msg._from,"","\nMemproses..")
-                            ki.sendText(msg.to,msg._from)
+                            kingbii.sendMessageWithMention(msg.to, msg._from,"","\nMemproses..")
+                            kingbii.sendText(msg.to,msg._from)
                         
                         elif text.lower() == ".me":
-                            ki.sendMessageWithMention(msg.to,msg._from,"Hay","\nada apa?")
+                            kingbii.sendMessageWithMention(msg.to,msg._from,"Hay","\nada apa?")
                             
                         elif text.lower() == ".spbot":
                             start = time.time()
-                            cl.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
+                            kingbii.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
                             elapsed_time = time.time() - start
-                            cl.sendText(msg.to, "%s " % (elapsed_time))
+                            kingbii.sendText(msg.to, "%s " % (elapsed_time))
                             
                             start2 = time.time()
-                            ki.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
+                            assist1.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
                             elapsed_time = time.time() - start2
-                            ki.sendText(msg.to, "%s" % (elapsed_time))
+                            assist1.sendText(msg.to, "%s" % (elapsed_time))
                                 
                             start3 = time.time()
-                            kk.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
+                            assist2.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
                             elapsed_time = time.time() - start3
-                            kk.sendText(msg.to, "%s" % (elapsed_time))
+                            assist2.sendText(msg.to, "%s" % (elapsed_time))
                                 
                             start4 = time.time()
-                            kc.sendMessage("u3b07c57b6239e5216aa4c7a02687c86d", '.')
+                            assist3.sendMessage("u3b07c57b6239e5216aa4c7a02687c86d", '.')
                             elapsed_time = time.time() - start4
-                            kc.sendText(msg.to, "%s" % (elapsed_time))
+                            assist3.sendText(msg.to, "%s" % (elapsed_time))
                                 
                             start5 = time.time()
-                            ks.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
+                            assist4.sendText("u3b07c57b6239e5216aa4c7a02687c86d", '.')
                             elapsed_time = time.time() - start5
-                            ks.sendText(msg.to, "%s" % (elapsed_time))
+                            assist4.sendText(msg.to, "%s" % (elapsed_time))
                             
                         elif text.lower() == ".tagall":
                             group = cl.getGroup(msg.to)
@@ -287,51 +287,54 @@ def bot(op):
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
                                     txt += u'@Sange \n'
-                                ki.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
+                                kingbii.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
                                 
                         elif text.lower() == ".restart":
                             if msg._from in RASelf:
-                                ki.sendMessageWithMention(msg.to,msg._from,"","Tunggu Sebentar..")
+                                kingbii.sendMessageWithMention(msg.to,msg._from,"","Tunggu Sebentar..")
                                 python3 = sys.executable
                                 os.execl(python3, python3, *sys.argv)
                                 
                         elif text.lower() == ".removechat":
                             if msg._from in RASelf:
                                 try:
-                                    ki.removeAllMessages(op.param2)
-                                    kk.removeAllMessages(op.param2)
-                                    kc.removeAllMessages(op.param2)
-                                    ks.removeAllMessages(op.param2)
-                                    ki.sendMessageWithMention(msg.to,msg._from,"","Chat bersih...")
+                                    assist1.removeAllMessages(op.param2)
+                                    assist2.removeAllMessages(op.param2)
+                                    assist3.removeAllMessages(op.param2)
+                                    assist4.removeAllMessages(op.param2)
+                                    assist1.sendMessageWithMention(msg.to,msg._from,"","Sudah Di Bersihkan")
                                 except:
                                     pass        
                             
-                        elif text.lower() == ".join":
+                        elif text.lower() == ".asupkan":
                             if msg._from in RASelf:
-                                G = cl.getGroup(msg.to)
-                                ginfo = cl.getGroup(msg.to)
+                                G = kingbii.getGroup(msg.to)
+                                ginfo = kingbii.getGroup(msg.to)
                                 G.preventedJoinByTicket = False
-                                cl.updateGroup(G)
+                                kingbii.updateGroup(G)
                                 invsend = 0
-                                Ticket = cl.reissueGroupTicket(msg.to)
-                                ki.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                kk.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                kc.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                ks.acceptGroupInvitationByTicket(msg.to,Ticket)
-                                G = cl.getGroup(msg.to)
+                                Ticket = kingbii.reissueGroupTicket(msg.to)
+                                assist1.acceptGroupInvitationByTicket(msg.to,Ticket)
+                                assist2.acceptGroupInvitationByTicket(msg.to,Ticket)
+                                assist3.acceptGroupInvitationByTicket(msg.to,Ticket)
+                                assist4.acceptGroupInvitationByTicket(msg.to,Ticket)
+                                G = kingbii.getGroup(msg.to)
                                 G.preventedJoinByTicket = True
-                                cl.updateGroup(G)
+                                kingbii.updateGroup(G)
                                 G.preventedJoinByTicket(G)
-                                cl.updateGroup(G)
+                                kingbii.updateGroup(G)
                         
-                        elif text.lower() == ".bye":
+                        elif text.lower() == ".crotkan":
                             if msg._from in RASelf:
-                                ra = ki.getGroup(msg.to)
-                                ki.sendMessageWithMention(msg.to,ra.creator.mid,"Maaf","\naku keluar dulu ya..")
-                                ki.leaveGroup(msg.to)
-                                kk.leaveGroup(msg.to)
-                                kc.leaveGroup(msg.to)
-                                ks.leaveGroup(msg.to)
+                                ra = assist1.getGroup(msg.to)
+                                assist1.sendMessageWithMention(msg.to,ra.creator.mid,"Haii bro","\nAku pamit dulu bye muach")
+                                assist1.leaveGroup(msg.to)
+                                assist2.sendMessageWithMention(msg.to,ra.creator.mid,"Haii bro","\nAku pamit dulu bye muach")
+                                assist2.leaveGroup(msg.to)
+                                assist3.sendMessageWithMention(msg.to,ra.creator.mid,"Haii bro","\nAku pamit dulu bye muach")
+                                assist3.leaveGroup(msg.to)
+                                assist4.sendMessageWithMention(msg.to,ra.creator.mid,"Haii bro","\nAku pamit dulu bye muach")
+                                assist4.leaveGroup(msg.to)
                                 
                         elif ".kick" in text.lower():
                             if msg._from in RASelf:
@@ -345,8 +348,8 @@ def bot(op):
                                         pass
                                     else:
                                         try:
-                                            ki.sendMessageWithMention(msg.to,target,"Maaf","aku kick")
-                                            klist = [ki,kk,kc,ks]
+                                            assist1.sendMessageWithMention(msg.to,target,"""aku kick")
+                                            klist = [assist1,assist2,assist3,assist4
                                             kicker = random.choice(klist)
                                             kicker.kickoutFromGroup(msg.to,[target])
                                         except:
