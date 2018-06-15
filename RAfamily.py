@@ -15,23 +15,23 @@ import time, random, multiprocessing, sys, json, codecs, threading, glob, re, st
 #line.log("Auth Token : " + str(line.authToken))
 #line.log("Timeline Token : " + str(line.tl.channelAccessToken))
 
-kingbii = LINE('EtrmS3oUXfBgnebMDhn2.DisVv0CR4ueuGbCd9qACyG.hwgJMJc5N6TBSdvTunT5PdhzZ0tCIWT3st3VSnz67C4=') 
+kingbii = LINE() 
 kingbii.log("Auth Token : " + str(kingbii.authToken)) 
 kingbii.log("Timeline Token : " + str(kingbii.tl.channelAccessToken)) 
 
-assist1 = LINE('Et2HaAb22ajdc8soOm51.IP2zEllIfcM5E7ExBmby0q.WezqNs++G5Lvv8tfTztyiho6KUVUYpf7V2asdU+zbDY=') 
+assist1 = LINE() 
 assist1.log("Auth Token : " + str(assist1.authToken)) 
 assist1.log("Timeline Token : " + str(assist1.tl.channelAccessToken)) 
 
-assist2 = LINE('EtbLSd9ReOlQAZE9hwH4.1URSVcJIcR9zzYAVPUCMva.XnpbAfHUCEPSDJ2n8wmIBf4BCFYrOf3G9VgKNdZJePM=') 
+assist2 = LINE() 
 assist2.log("Auth Token : " + str(assist2.authToken)) 
 assist2.log("Timeline Token : " + str(assist2.tl.channelAccessToken)) 
 
-assist3 = LINE('Et6B22hvOjcoZvOaHvR8.IKEvrxzF/YzIJK51+auW2a.I+kKj1Vhj5NItF+gWFqtvaOW0r+YykbPTWBO4TmA+dk=') 
+assist3 = LINE() 
 assist3.log("Auth Token : " + str(assist3.authToken)) 
 assist3.log("Timeline Token : " + str(assist3.tl.channelAccessToken)) 
 
-assist4 = LINE('EtZgcafqzHnHeata9ub6.j/tdO7lwB+C03rcYZKrK1G.K6mo2Jl9NLaH1qjiuNe62MPeaN8h9tnSwN7x9oW1p9M=') 
+assist4 = LINE() 
 assist4.log("Auth Token : " + str(assist4.authToken)) 
 assist4.log("Timeline Token : " + str(assist4.tl.channelAccessToken))
 
