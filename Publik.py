@@ -19,31 +19,11 @@ kingbii = LINE()
 kingbii.log("Auth Token : " + str(kingbii.authToken)) 
 kingbii.log("Timeline Token : " + str(kingbii.tl.channelAccessToken)) 
 
-assist1 = LINE() 
-assist1.log("Auth Token : " + str(assist1.authToken)) 
-assist1.log("Timeline Token : " + str(assist1.tl.channelAccessToken)) 
-
-assist2 = LINE() 
-assist2.log("Auth Token : " + str(assist2.authToken)) 
-assist2.log("Timeline Token : " + str(assist2.tl.channelAccessToken)) 
-
-assist3 = LINE() 
-assist3.log("Auth Token : " + str(assist3.authToken)) 
-assist3.log("Timeline Token : " + str(assist3.tl.channelAccessToken)) 
-
-assist4 = LINE() 
-assist4.log("Auth Token : " + str(assist4.authToken)) 
-assist4.log("Timeline Token : " + str(assist4.tl.channelAccessToken))
-
 kingbii = kingbii
 oepoll = OEPoll(kingbii)
-All = [assist1,assist2,assist3,assist4]
+#All = [assist1,assist2,assist3,assist4]
 mid = kingbii.profile.mid
-Amid = assist1.getProfile().mid
-Bmid = assist2.getProfile().mid
-Cmid = assist3.getProfile().mid
-Dmid = assist4.getProfile().mid
-RABots = [mid,Amid,Bmid,Cmid,Dmid]
+RABots = [mid]
 RASelf = ["Mid Kamu"]
 RAFamily = RASelf + RABots
 Setbot = codecs.open("setting.json","r","utf-8")
@@ -169,7 +149,7 @@ def bot(op):
                 assist3.removeAllMessages()
                 assist4.removeAllMessages() 
                 
-        if op.type == 25:
+        if op.type == 26:
             msg = op.message
             text = msg.text
             msg_id = msg.id
@@ -195,7 +175,7 @@ def bot(op):
             #---------------------- Start Command ------------------------#
                         
                         if text.lower() == "menu":
-                            md = "🔰|RA|Family Version\n\n"
+                            md = "🔰|Publik| Version\n\n"
                             md += "🔰 .cek「@」\n"
                             md += "🔰 .gid\n"
                             md += "🔰 .yid\n"
@@ -214,7 +194,7 @@ def bot(op):
                             
                         elif text.lower() == ".pengaturan":
                             if msg._from in RASelf:
-                                md = "🔰|RA|Family Version\n\n"
+                                md = "🔰|Publik| Version\n\n"
                                 if Setmain["RAautoscan"] == True: md+="✅ Cekmid\n"
                                 else: md+="❎ Cekmid\n"
                                 if Setmain["RAautoread"] == True: md+="✅ Autoread\n"
